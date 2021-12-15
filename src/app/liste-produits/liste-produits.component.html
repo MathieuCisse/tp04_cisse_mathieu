@@ -1,0 +1,14 @@
+<h1>Liste de produits</h1>
+<app-filtre-produits></app-filtre-produits>
+<table>
+  <thead>
+    <th>Libellé</th>
+    <th>Prix</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let produit of observateurProduits | async">
+      <td>{{ produit.libelle }}</td>
+      <td>{{ produit.prix }}€</td>
+    </tr>
+  </tbody>
+</table>
