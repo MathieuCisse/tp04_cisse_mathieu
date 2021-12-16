@@ -7,7 +7,12 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class FiltreProduitsComponent {
 
-  @Input() filtre: string = "";
+  filtre: string = "";
+  @Output() changeFiltreValeur : EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
+
+  ngModelFiltreChange(): void {
+    this.changeFiltreValeur.emit(this.filtre);
+  }
 }
