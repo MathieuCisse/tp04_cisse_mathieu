@@ -20,6 +20,7 @@ export class ListeProduitsComponent implements OnInit {
   }
 
   updateValeurFiltre(nouvelleValeurFiltre : any) : void {
+    // si la valeur du filtre n'est pas numérique alors on filtre en fonction du libelle des produits
     if(isNaN(nouvelleValeurFiltre) && nouvelleValeurFiltre != "") {
       this.observateurProduits = this.produitService.getProduits().pipe(
         map(produits => produits.filter(
@@ -27,11 +28,12 @@ export class ListeProduitsComponent implements OnInit {
         ))
       );
     }
+    // si le filtre est vide alors on retourne tout
     else if(nouvelleValeurFiltre == "") {
       this.observateurProduits = this.produitService.getProduits();
     }
+    // si la valeur du filtre est numérique alors on filtre en fonction du prix des produits
     else {
-      console.log("prix");
       this.observateurProduits = this.produitService.getProduits().pipe(
         map(produits => produits.filter(
           produit => parseFloat(nouvelleValeurFiltre) > (produit.prix - 2)&& parseFloat(nouvelleValeurFiltre) < (produit.prix + 2)
