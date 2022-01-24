@@ -7,17 +7,23 @@ import {HttpClientModule} from "@angular/common/http";
 import {ProduitService} from "./produit.service";
 import { ListeProduitsComponent } from './liste-produits/liste-produits.component';
 import { FiltreProduitsComponent } from './filtre-produits/filtre-produits.component';
+import { PanierComponent } from './panier/panier.component';
+import {NgxsModule} from "@ngxs/store";
+import { TetiereComponent } from './tetiere/tetiere.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListeProduitsComponent,
-    FiltreProduitsComponent
+    FiltreProduitsComponent,
+    PanierComponent,
+    TetiereComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxsModule.forRoot()
   ],
   providers: [ProduitService],
   bootstrap: [AppComponent]
