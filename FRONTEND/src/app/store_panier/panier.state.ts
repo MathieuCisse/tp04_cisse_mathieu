@@ -1,10 +1,8 @@
-import {Produit} from "../produit";
 import {Action, Selector, State, StateContext} from "@ngxs/store";
 import {Panier} from "./panier.actions";
-
-export interface PanierStateModel {
-  produits: [];
-}
+import {PanierStateModel} from "../panierstatemodel";
+import {Injectable} from "@angular/core";
+import {Produit} from "../produit";
 
 @State<PanierStateModel>({
   name: 'panier',
@@ -12,27 +10,32 @@ export interface PanierStateModel {
     produits: []
   }
 })
+@Injectable()
 export class PanierState {
+
   @Selector()
-  static countPanierItem(panierStateModel: PanierStateModel) {
-    return panierStateModel.produits.length;
+  static countPanierItem(state: PanierStateModel) {
+    return state.produits.length;
+  }
+
+  @Selector()
+  static getProduit(state: PanierStateModel): Produit[]{
+    return state.produits;
   }
 
   @Action(Panier.Add)
-  addItemToPanier(ctx: StateContext<PanierStateModel>) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      produits: state.produits
-    });
+  addItemToPanier({getState, patchState}:StateContext<PanierStateModel>, {payload}: Panier.Add) {
+    const state = getState()
+    patchState({
+      produits: [...state.produits, payload]
+    })
   }
 
   @Action(Panier.Remove)
-  removeItemToPanier(ctx: StateContext<PanierStateModel>, produitToRemove : Produit) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      produits: state.produits.filter(produit => produit != produitToRemove)
-    });
+  removeItemToPanier({getState, patchState}:StateContext<PanierStateModel>, {payload}: Panier.Remove) {
+    const state = getState()
+    patchState({
+      produits: state.produits.filter(produit => produit != payload)
+    })
   }
 }

@@ -10,6 +10,7 @@ import { FiltreProduitsComponent } from './filtre-produits/filtre-produits.compo
 import { PanierComponent } from './panier/panier.component';
 import {NgxsModule} from "@ngxs/store";
 import { TetiereComponent } from './tetiere/tetiere.component';
+import {PanierState} from "./store_panier/panier.state";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { TetiereComponent } from './tetiere/tetiere.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgxsModule.forRoot()
+    NgxsModule.forRoot([PanierState])
   ],
   providers: [ProduitService],
   bootstrap: [AppComponent]

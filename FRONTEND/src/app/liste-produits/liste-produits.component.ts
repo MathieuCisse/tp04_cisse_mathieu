@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ProduitService} from "../produit.service";
 import {map, Observable} from "rxjs";
 import {Produit} from "../produit";
+import {Store} from "@ngxs/store";
+import {Panier} from "../store_panier/panier.actions";
 
 @Component({
   selector: 'app-liste-produits',
@@ -13,7 +15,7 @@ export class ListeProduitsComponent implements OnInit {
   filtre: string = "";
   observateurProduits: Observable<Produit[]> = new Observable<Produit[]>();
 
-  constructor(private produitService : ProduitService) {}
+  constructor(private produitService : ProduitService, private store: Store) {}
 
   ngOnInit() : void {
     this.observateurProduits = this.produitService.getProduits();
@@ -42,4 +44,7 @@ export class ListeProduitsComponent implements OnInit {
     }
   }
 
+  addPanier(produit: Produit): void {
+    this.store.dispatch(new Panier.Add(produit));
+  }
 }

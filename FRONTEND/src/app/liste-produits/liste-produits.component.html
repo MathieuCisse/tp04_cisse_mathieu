@@ -9,7 +9,7 @@
     <tr *ngFor="let produit of observateurProduits | async">
       <td>{{ produit.libelle }}</td>
       <td>{{ produit.prix }}€</td>
-      <td><button type="button">Ajouter</button></td>
+      <td><button type="button" (click)="addPanier(produit)">Ajouter</button></td>
     </tr>
   </tbody>
 </table>

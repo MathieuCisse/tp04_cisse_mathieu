@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {PanierState} from "../store_panier/panier.state";
-import {Select} from "@ngxs/store";
+import {Store} from "@ngxs/store";
 
 @Component({
   selector: 'app-tetiere',
@@ -10,10 +10,11 @@ import {Select} from "@ngxs/store";
 })
 export class TetiereComponent implements OnInit {
 
-  constructor() { }
+  countPanierItem$: Observable<number>;
+
+  constructor(private store: Store) {
+    this.countPanierItem$ = this.store.select(PanierState.countPanierItem);
+  }
 
   ngOnInit(): void {}
-
-  @Select(PanierState.countPanierItem) countPanierItem$ : Observable<number> = new Observable<number>();
-
 }

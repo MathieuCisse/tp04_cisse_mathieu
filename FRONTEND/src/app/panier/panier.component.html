@@ -1,1 +1,14 @@
-<p>panier works!</p>
+<h1>Panier(s):</h1>
+<table>
+  <thead>
+    <th>Libellé</th>
+    <th>Prix</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let produit of produitInPanier$ | async">
+      <td>{{ produit.libelle }}</td>
+      <td>{{ produit.prix }}€</td>
+      <td><button type="button" (click)="deletePanier(produit)">Supprimer</button></td>
+    </tr>
+  </tbody>
+</table>
