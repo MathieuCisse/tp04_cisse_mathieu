@@ -5,12 +5,13 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import {ProduitService} from "./produit.service";
-import { ListeProduitsComponent } from './liste-produits/liste-produits.component';
-import { FiltreProduitsComponent } from './filtre-produits/filtre-produits.component';
-import { PanierComponent } from './panier/panier.component';
+import { ListeProduitsComponent } from './catalogue/liste-produits/liste-produits.component';
+import { FiltreProduitsComponent } from './catalogue/filtre-produits/filtre-produits.component';
+import { PanierComponent } from './panier/paniercomponent/panier.component';
 import {NgxsModule} from "@ngxs/store";
-import { TetiereComponent } from './tetiere/tetiere.component';
 import {PanierState} from "./store_panier/panier.state";
+import { HomeComponent } from './home/home.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -18,13 +19,20 @@ import {PanierState} from "./store_panier/panier.state";
     ListeProduitsComponent,
     FiltreProduitsComponent,
     PanierComponent,
-    TetiereComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgxsModule.forRoot([PanierState])
+    NgxsModule.forRoot([PanierState]),
+    RouterModule.forRoot([
+      {path: '', component: HomeComponent},
+      {path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
+      {path: 'catalogue', loadChildren: () => import('./catalogue/catalogue.module').then(m => m.CatalogueModule) },
+      {path: 'panier', loadChildren: () => import('./panier/panier.module').then(m => m.PanierModule) },
+      {path: '**', redirectTo: '', pathMatch: 'full'}
+    ])
   ],
   providers: [ProduitService],
   bootstrap: [AppComponent]

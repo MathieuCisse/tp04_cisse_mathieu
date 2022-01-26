@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ProduitService} from "../produit.service";
+import {ProduitService} from "../../produit.service";
 import {map, Observable} from "rxjs";
-import {Produit} from "../produit";
+import {Produit} from "../../produit";
 import {Store} from "@ngxs/store";
-import {Panier} from "../store_panier/panier.actions";
+import {Panier} from "../../store_panier/panier.actions";
 
 @Component({
   selector: 'app-liste-produits',

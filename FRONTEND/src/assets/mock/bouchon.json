@@ -1,7 +1,7 @@
 [
-  { "libelle": "linux", "prix":  10.5 },
-  { "libelle": "windows", "prix":  25.2 },
-  { "libelle": "macos", "prix":  1000.2 },
-  { "libelle": "android", "prix":  4.7 },
-  { "libelle": "ios", "prix":  25.4 }
+  { "id": 1, "libelle": "linux", "prix":  10.5 },
+  { "id": 2, "libelle": "windows", "prix":  25.2 },
+  { "id": 3, "libelle": "macos", "prix":  1000.2 },
+  { "id": 4, "libelle": "android", "prix":  4.7 },
+  { "id": 5, "libelle": "ios", "prix":  25.4 }
 ]

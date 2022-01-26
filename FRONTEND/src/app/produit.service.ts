@@ -13,4 +13,5 @@ export class ProduitService {
     // construction d'un observable afin que le composant appelant cette méthode puisse subscribre cette observateur
     return this.httpClient.get<Produit[]>(environment.baseUrl);
   }
+
 }

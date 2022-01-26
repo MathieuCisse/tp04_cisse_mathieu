@@ -10,6 +10,7 @@
       <td>{{ produit.libelle }}</td>
       <td>{{ produit.prix }}€</td>
       <td><button type="button" (click)="addPanier(produit)">Ajouter</button></td>
+      <td><a [routerLink] = "['/catalogue/', produit.id]" >Détail</a></td>
     </tr>
   </tbody>
 </table>

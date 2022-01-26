@@ -1,4 +1,11 @@
 <h1>TP4 - NFE114</h1>
-<app-tetiere></app-tetiere>
-<app-liste-produits></app-liste-produits>
+<ul>
+  <li><a [routerLink] = "['/']" >Home</a></li>
+  <!--<li><a [routerLink] = "['/client/signin']">Signin</a></li>
+  <li><a [routerLink] = "['/client/signup']">Signup</a></li>-->
+  <li><a [routerLink] = "['/catalogue']" >Catalogue</a></li>
+  <li><a [routerLink] = "['/panier']" >Panier</a></li>
+</ul>
+<p>Nombre d'items dans le panier: {{ countPanierItem$ | async }}</p>
+<router-outlet></router-outlet>
 <p>Développé par Mathieu Cissé</p>
