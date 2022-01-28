@@ -1,6 +1,6 @@
 import {Produit} from "../produit";
 
-export namespace Panier {
+export namespace PanierAction {
 
   export class Add {
     static readonly type = '[Panier Store] Add';

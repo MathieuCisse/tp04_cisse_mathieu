@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Produit} from "../../produit";
-import {Panier} from "../../store_panier/panier.actions";
+import {PanierAction} from "../../store/panier_actions.actions";
 import {Store} from "@ngxs/store";
 import {map, Observable} from "rxjs";
 import {ProduitService} from "../../produit.service";
@@ -27,7 +27,7 @@ export class DetailComponent implements OnInit {
 
 
   addPanier(produit: Produit): void {
-    this.store.dispatch(new Panier.Add(produit));
+    this.store.dispatch(new PanierAction.Add(produit));
   }
 
 }

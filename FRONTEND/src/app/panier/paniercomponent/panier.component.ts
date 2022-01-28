@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from "@ngxs/store";
 import {Observable} from "rxjs";
-import {PanierState} from "../../store_panier/panier.state";
+import {PanierState} from "../../store/panier_state";
 import {Produit} from "../../produit";
-import {Panier} from "../../store_panier/panier.actions";
+import {PanierAction} from "../../store/panier_actions.actions";
 
 @Component({
   selector: 'app-panier',
@@ -22,7 +22,7 @@ export class PanierComponent implements OnInit {
   }
 
   deletePanier(produit: Produit): void {
-    this.store.dispatch(new Panier.Remove(produit));
+    this.store.dispatch(new PanierAction.Remove(produit));
   }
 
 }

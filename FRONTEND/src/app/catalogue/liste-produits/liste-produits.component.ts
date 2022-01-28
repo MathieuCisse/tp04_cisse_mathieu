@@ -3,7 +3,7 @@ import {ProduitService} from "../../produit.service";
 import {map, Observable} from "rxjs";
 import {Produit} from "../../produit";
 import {Store} from "@ngxs/store";
-import {Panier} from "../../store_panier/panier.actions";
+import {PanierAction} from "../../store/panier_actions.actions";
 
 @Component({
   selector: 'app-liste-produits',
@@ -45,6 +45,6 @@ export class ListeProduitsComponent implements OnInit {
   }
 
   addPanier(produit: Produit): void {
-    this.store.dispatch(new Panier.Add(produit));
+    this.store.dispatch(new PanierAction.Add(produit));
   }
 }
