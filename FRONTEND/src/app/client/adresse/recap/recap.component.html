@@ -1,0 +1,7 @@
+<h1>Mes adresses ({{ countAdresses$ | async }})</h1>
+<ul>
+  <li *ngFor="let adrese of adresses$ | async">
+    {{ adrese.adresse }} {{ adrese.cp }} {{ adrese.ville }} ({{ adrese.pays }})
+    <button type="button" (click)="deleteAdresse(adrese)">Supprimer</button>
+  </li>
+</ul>

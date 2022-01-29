@@ -3,11 +3,13 @@
   <thead>
     <th>Libellé</th>
     <th>Prix</th>
+    <th>Nombre</th>
   </thead>
   <tbody>
     <tr *ngFor="let produit of produitInPanier$ | async">
       <td>{{ produit.libelle }}</td>
       <td>{{ produit.prix }}€</td>
+      <td>{{ produit.quantite }}</td>
       <td><button type="button" (click)="deletePanier(produit)">Supprimer</button></td>
     </tr>
   </tbody>

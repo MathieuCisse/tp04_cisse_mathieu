@@ -15,6 +15,9 @@ import {RouterModule} from "@angular/router";
 import { InputValidationDirective } from './input-validation.directive';
 import {AdresseState} from "./store/adresse_state";
 import {AdresseComponent} from "./client/adresse/adresse.component";
+import {RecapComponent} from "./client/adresse/recap/recap.component";
+import {SigninComponent} from "./client/signin/signin.component";
+import {SignupComponent} from "./client/signup/signup.component";
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import {AdresseComponent} from "./client/adresse/adresse.component";
     PanierComponent,
     HomeComponent,
     AdresseComponent,
+    SigninComponent,
+    SignupComponent,
+    RecapComponent,
     InputValidationDirective
   ],
   imports: [

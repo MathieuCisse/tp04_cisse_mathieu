@@ -1,45 +1,32 @@
-<h1>Adresse</h1>
-<form #registerForm="ngForm" (ngSubmit)="sendToRecap(registerForm)" class="row g-3" novalidate>
+<div class="row">
+  <div class="col">
+    <h1>Création adresse</h1>
+    <form #registerForm="ngForm" (ngSubmit)="sendToRecap(registerForm)" class="row g-3" novalidate>
 
-  <div class="col-md-6">
-    <label class="form-label">Nom</label>
-    <input type="text" name="nom" class="form-control"  [(ngModel)]="nom" appInputValidation required />
-  </div>
-  <div class="col-md-6">
-    <label class="form-label">Prénom</label>
-    <input type="text" name="prenom" class="form-control" [(ngModel)]="prenom" appInputValidation required/>
-  </div>
-  <div class="col-12">
-    <label class="form-label">Adresse</label>
-    <input type="text" name="adresse" class="form-control" [(ngModel)]="adresse" appInputValidation required />
-  </div>
-  <div class="col-md-6">
-    <label class="form-label">Ville</label>
-    <input type="text" name="ville" [(ngModel)]="ville" class="form-control" appInputValidation required />
+      <div class="col-12">
+        <label class="form-label">Adresse</label>
+        <input type="text" name="adresse" class="form-control" [(ngModel)]="adresse" appInputValidation required />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Ville</label>
+        <input type="text" name="ville" [(ngModel)]="ville" class="form-control" appInputValidation required />
 
-  </div>
-  <div class="col-md-4">
-    <label class="form-label">Pays</label>
-    <input type="text" name="ville" [(ngModel)]="pays" class="form-control" appInputValidation required />
-  </div>
-  <div class="col-md-2">
-    <label class="form-label">Code postal</label>
-    <input type="text" name="cp" [(ngModel)]="cp" class="form-control" appInputValidation required />
-  </div>
-  <div class="col-md-4">
-    <label class="form-label">Téléphone</label>
-    <input type="tel" name="telephone" pattern="[0-9]{10}" [(ngModel)]="telephone" class="form-control" appInputValidation required />
-  </div>
-  <div class="col-md-4">
-    <label class="form-label">Email</label>
-    <input type="email" name="email" [(ngModel)]="email" class="form-control" appInputValidation required />
-  </div>
-  <div class="col-md-4">
-    <label class="form-label">Civilité</label>
-    <input type="text" name="civilite" [(ngModel)]="civilite" class="form-control" appInputValidation required />
-  </div>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Pays</label>
+        <input type="text" name="ville" [(ngModel)]="pays" class="form-control" appInputValidation required />
+      </div>
+      <div class="col-md-2">
+        <label class="form-label">Code postal</label>
+        <input type="text" name="cp" [(ngModel)]="cp" class="form-control" appInputValidation required />
+      </div>
 
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary w-100">Ajouter l'adresse</button>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary w-100">Ajouter l'adresse</button>
+      </div>
+    </form>
   </div>
-</form>
+  <div class="col">
+    <app-recap></app-recap>
+  </div>
+</div>
